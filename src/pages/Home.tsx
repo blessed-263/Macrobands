@@ -12,10 +12,10 @@ export default function Home() {
     <div className="flex flex-col -mt-[88px]">
       {/* Hero Section - Split Editorial Layout */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 flex flex-col justify-center max-w-7xl mx-auto min-h-[100vh] lg:min-h-[95vh] overflow-hidden">
-        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 xl:gap-20">
           
           {/* Text Content */}
-          <div className="w-full lg:w-[55%] flex flex-col items-start text-left text-[#09090B] z-10 order-2 lg:order-1 mt-10 lg:mt-0">
+          <div className="w-full lg:w-[48%] flex flex-col items-start text-left text-[#09090B] z-10 order-2 lg:order-1 mt-10 lg:mt-0">
             <FadeIn direction="up" delay={0.2}>
               <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-[#38BDF8] mb-6 md:mb-8 flex items-center gap-4">
                 Southern Africa Customs & Logistics
@@ -50,11 +50,11 @@ export default function Home() {
           </div>
 
           {/* Prominent Hero Image */}
-          <div className="w-full lg:w-[45%] order-1 lg:order-2 relative mt-8 lg:mt-0">
+          <div className="w-full lg:w-[52%] order-1 lg:order-2 relative mt-8 lg:mt-0">
             <FadeIn delay={0.4} direction="left" className="w-full aspect-[4/5] md:aspect-square lg:aspect-[3/4] relative z-10">
               <ImageReveal 
                 src={images.heroLogistics}
-                alt="Luxurious cross-border logistics pathway"
+                alt="Heavy freight trucks on a highway at dusk, representing regional road logistics"
                 className="w-full h-full rounded-sm shadow-2xl shadow-gray-200"
               />
               
