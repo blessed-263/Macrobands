@@ -13,9 +13,9 @@ const corridorStats = [
 /** Simplified SA → Zim corridor diagram (decorative geography, not a map product). */
 function CorridorMap() {
   const mainPath =
-    'M 96 292 C 220 240 300 200 392 168 S 520 120 612 108 S 720 96 804 88';
-  const durbanBranch = 'M 96 292 L 168 348';
-  const bulawayoBranch = 'M 612 108 L 688 228';
+    'M 110 280 C 260 215 340 188 420 170 C 520 145 620 115 812 88';
+  const bulawayoBranch = 'M 420 170 L 658 232';
+  const chirunduBranch = 'M 520 138 L 560 92';
 
   return (
     <svg
@@ -44,17 +44,6 @@ function CorridorMap() {
         transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
       />
       <motion.path
-        d={durbanBranch}
-        stroke="#FBBF24"
-        strokeWidth="2"
-        strokeOpacity={0.55}
-        strokeLinecap="round"
-        initial={{ pathLength: 0 }}
-        whileInView={{ pathLength: 1 }}
-        viewport={{ once: true, margin: '-12%' }}
-        transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      />
-      <motion.path
         d={bulawayoBranch}
         stroke="#FBBF24"
         strokeWidth="2"
@@ -63,16 +52,27 @@ function CorridorMap() {
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true, margin: '-12%' }}
-        transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      />
+      <motion.path
+        d={chirunduBranch}
+        stroke="#FBBF24"
+        strokeWidth="2"
+        strokeOpacity={0.55}
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        whileInView={{ pathLength: 1 }}
+        viewport={{ once: true, margin: '-12%' }}
+        transition={{ duration: 0.85, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
       />
 
       {[
-        { cx: 96, cy: 292, code: 'JHB', name: 'Johannesburg' },
-        { cx: 168, cy: 348, code: 'DBN', name: 'Durban' },
-        { cx: 392, cy: 168, code: 'MUS', name: 'Musina' },
-        { cx: 612, cy: 108, code: 'BBR', name: 'Beitbridge' },
-        { cx: 804, cy: 88, code: 'HRE', name: 'Harare' },
-        { cx: 688, cy: 228, code: 'BYO', name: 'Bulawayo' },
+        { cx: 110, cy: 280, code: 'MUS', name: 'Musina' },
+        { cx: 420, cy: 170, code: 'BBR', name: 'Beitbridge' },
+        { cx: 560, cy: 92, code: 'CHI', name: 'Chirundu' },
+        { cx: 740, cy: 118, code: 'NYA', name: 'Nyamapanda' },
+        { cx: 812, cy: 88, code: 'HRE', name: 'Harare' },
+        { cx: 658, cy: 232, code: 'BYO', name: 'Bulawayo' },
       ].map((node, i) => (
         <g key={node.code}>
           <motion.circle
@@ -124,12 +124,12 @@ function CorridorMap() {
 
 export default function RegionalNetwork() {
   const locations = [
-    { city: "Johannesburg", desc: "Southern Africa Headquarters & Primary Node" },
-    { city: "Durban", desc: "Major Seaport Logistics & Processing" },
-    { city: "Musina", desc: "Border Operations & Logistics Staging" },
-    { city: "Beitbridge", desc: "Direct Border Clearing & Transit" },
-    { city: "Harare", desc: "Zimbabwean Operations Center" },
-    { city: "Bulawayo", desc: "Industrial Hub & Secondary Distribution" }
+    { city: "Musina", desc: "South African staging & corridor feed into the Limpopo line" },
+    { city: "Beitbridge", desc: "Primary SA–Zimbabwe border clearance & heavy transit" },
+    { city: "Chirundu", desc: "Zambezi gateway & northbound corridor coordination" },
+    { city: "Nyamapanda", desc: "Eastern border post clearance & regional staging" },
+    { city: "Harare", desc: "Zimbabwean operations centre & distribution control" },
+    { city: "Bulawayo", desc: "Industrial hub & secondary distribution" },
   ];
 
   return (
@@ -147,7 +147,7 @@ export default function RegionalNetwork() {
         </TextReveal>
         <FadeIn direction="up" delay={0.15} className="max-w-2xl mx-auto">
           <p className="text-base md:text-lg font-light leading-relaxed opacity-[0.82] text-[#09090B]">
-            Dedicated teams and staging capacity along the primary South Africa–Zimbabwe trade corridor, with coastal and inland nodes aligned to how cargo actually moves.
+            Dedicated teams and staging capacity along the primary South Africa–Zimbabwe trade corridor, from Musina and Beitbridge through Chirundu and Nyamapanda into Harare and Bulawayo—aligned to how cargo actually moves.
           </p>
         </FadeIn>
       </div>
@@ -171,10 +171,10 @@ export default function RegionalNetwork() {
                   Corridor overview
                 </p>
                 <h2 className="font-syne text-3xl md:text-4xl font-light tracking-tight text-balance">
-                  Johannesburg to Harare—coordinated every step.
+                  Musina to Harare—coordinated every step.
                 </h2>
                 <p className="text-sm md:text-base font-light leading-relaxed text-[#d6d3d1] max-w-md">
-                  Ocean and industrial freight feeds Durban and Johannesburg; cleared loads cross at Beitbridge with staging in Musina; distribution continues into Harare and Bulawayo.
+                  Corridor staging at Musina; clearance and heavy transit at Beitbridge; northern and eastern gateways through Chirundu and Nyamapanda; distribution anchored in Harare with Bulawayo industrial coverage.
                 </p>
                 <GlobeIcon size={40} className="text-[#FBBF24]/90 hidden sm:block" />
               </div>

@@ -12,7 +12,7 @@ export default function Contact() {
       <section className="w-full h-[40vh] md:h-[50vh] overflow-hidden -mt-[88px] relative z-0">
         <ParallaxImage 
           src={images.contactOffice} 
-          alt="Modern corporate office interior"
+          alt="Macrobands logistics operations across Southern Africa"
           className="w-full h-full"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-[#FAFAFA]/60 to-transparent z-10" />

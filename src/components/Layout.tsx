@@ -118,8 +118,10 @@ export default function Layout() {
             <div>
               <h4 className="text-[10px] uppercase tracking-[0.2em] font-medium mb-6 opacity-40">Offices</h4>
               <ul className="space-y-3 text-sm opacity-90 font-light">
-                <li>Johannesburg</li>
-                <li>Durban</li>
+                <li>Musina</li>
+                <li>Beitbridge</li>
+                <li>Chirundu</li>
+                <li>Nyamapanda</li>
                 <li>Harare</li>
                 <li>Bulawayo</li>
               </ul>

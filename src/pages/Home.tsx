@@ -5,7 +5,7 @@ import { TextReveal } from '../components/TextReveal';
 import { Link } from 'react-router-dom';
 import { ParallaxImage } from '../components/ParallaxImage';
 import { ImageReveal } from '../components/ImageReveal';
-import { images } from '../assets/images';
+import { images, intrinsicDimensions } from '../assets/images';
 
 export default function Home() {
   return (
@@ -51,25 +51,42 @@ export default function Home() {
 
           {/* Prominent Hero Image */}
           <div className="w-full lg:w-[52%] order-1 lg:order-2 relative mt-8 lg:mt-0">
-            <FadeIn delay={0.4} direction="left" className="w-full aspect-[4/5] md:aspect-square lg:aspect-[3/4] relative z-10">
-              <ImageReveal 
-                src={images.heroLogistics}
-                alt="Heavy freight trucks on a highway at dusk, representing regional road logistics"
-                className="w-full h-full rounded-sm shadow-2xl shadow-gray-200"
-              />
-              
-              {/* Floating animated badge */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }} 
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-8 md:-bottom-12 -left-4 md:-left-12 bg-white p-6 shadow-xl border border-[#09090B]/5 rounded-sm z-20 hidden sm:block"
-              >
-                <p className="text-[10px] uppercase tracking-[0.2em] font-medium text-[#38BDF8] mb-2 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#38BDF8] animate-pulse"></span>
-                  Live Monitoring
-                </p>
-                <p className="font-syne text-xl font-medium tracking-tight">100% Precision</p>
-              </motion.div>
+            <FadeIn delay={0.4} direction="left" className="relative z-10 w-full">
+              {/*
+                Explicit aspect + min-height: an all-absolute stack can collapse to 0px tall,
+                which breaks useInView and hides the image. Padding reserve keeps layout stable.
+              */}
+              <div className="relative w-full overflow-visible">
+                <div
+                  className="relative w-full overflow-hidden rounded-sm shadow-2xl shadow-gray-200"
+                  style={{
+                    aspectRatio: `${intrinsicDimensions.heroLogistics.width} / ${intrinsicDimensions.heroLogistics.height}`,
+                    minHeight: 'clamp(280px, 48vw, 560px)',
+                  }}
+                >
+                  <ImageReveal
+                    src={images.heroLogistics}
+                    alt="Macrobands Pvt Ltd branded truck fleet on a highway at sunset"
+                    className="h-full w-full min-h-0"
+                    priority
+                    intrinsic={intrinsicDimensions.heroLogistics}
+                  />
+                </div>
+
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                  className="pointer-events-none absolute bottom-4 left-4 z-20 max-w-[calc(100%-2rem)] rounded-sm border border-[#09090B]/10 bg-white/95 p-4 shadow-xl backdrop-blur-sm sm:bottom-5 sm:left-5 sm:p-5"
+                >
+                  <p className="mb-1.5 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.2em] text-[#38BDF8]">
+                    <span className="h-2 w-2 shrink-0 rounded-full bg-[#38BDF8] animate-pulse" />
+                    Live Monitoring
+                  </p>
+                  <p className="font-syne text-lg font-medium tracking-tight text-[#09090B] sm:text-xl">
+                    100% Precision
+                  </p>
+                </motion.div>
+              </div>
             </FadeIn>
 
             {/* Background design elements */}
@@ -100,7 +117,7 @@ export default function Home() {
       <section className="w-full h-[40vh] md:h-[60vh] overflow-hidden">
         <ParallaxImage 
           src={images.containerTerminal} 
-          alt="Logistics network container terminal"
+          alt="Container terminal and logistics network"
           className="w-full h-full"
         />
       </section>
@@ -171,11 +188,17 @@ export default function Home() {
       {/* Feature Section / Editorial Layout */}
       <section className="py-24 bg-white text-[#09090B] dark-section overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 relative aspect-[3/4] max-h-[700px]">
+          <div
+            className="relative order-2 w-full overflow-hidden rounded-sm lg:order-1"
+            style={{
+              aspectRatio: `${intrinsicDimensions.philosophyArchitecture.width} / ${intrinsicDimensions.philosophyArchitecture.height}`,
+            }}
+          >
             <ImageReveal 
               src={images.philosophyArchitecture} 
-              alt="Structured interior architecture representing disciplined logistics"
-              className="w-full h-full rounded-sm"
+              alt="Macrobands logistics operations—scale, discipline, and reliability"
+              className="h-full w-full"
+              intrinsic={intrinsicDimensions.philosophyArchitecture}
             />
           </div>
           
