@@ -42,7 +42,9 @@ export default function Layout() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          <Link to="/" className="font-syne tracking-tight text-2xl font-medium tracking-wide">Macrobands</Link>
+          <Link to="/" className="font-syne tracking-tight text-lg sm:text-xl md:text-2xl font-medium tracking-wide max-w-[85vw] sm:max-w-none leading-tight">
+            Macrobands Pvt Ltd
+          </Link>
           
           <div className="hidden md:flex space-x-12">
             {navLinks.map((link) => (
@@ -107,7 +109,7 @@ export default function Layout() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
             <div className="md:col-span-2">
-              <div className="font-syne tracking-tight text-4xl mb-6 font-light">Macrobands <span className="opacity-40 italic">Clearing</span></div>
+              <div className="font-syne tracking-tight text-4xl mb-6 font-light">Macrobands Pvt Ltd</div>
               <p className="text-base leading-[1.8] opacity-[0.85] max-w-sm font-light">
                 Premium clearing and forwarding solutions for a frictionless world economy.
               </p>
@@ -134,7 +136,7 @@ export default function Layout() {
           
           <div className="flex flex-col md:flex-row justify-between items-center pt-8 text-xs font-light gap-6 md:gap-4">
             <div className="flex flex-col md:flex-row items-center gap-4 opacity-50">
-              <p>&copy; {new Date().getFullYear()} Macrobands Clearing. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} Macrobands Pvt Ltd. All rights reserved.</p>
               <div className="flex space-x-6">
                 <a href="#" className="hover:opacity-100 transition-opacity uppercase tracking-wider">Privacy</a>
                 <a href="#" className="hover:opacity-100 transition-opacity uppercase tracking-wider">Terms</a>

@@ -32,7 +32,7 @@ export default function Home() {
             
             <FadeIn direction="up" delay={0.6}>
               <p className="mt-8 text-base md:text-xl opacity-90 max-w-xl leading-[1.8] font-light text-[#09090B]">
-                Macrobands provides bespoke customs clearing and precision logistics between South Africa and Zimbabwe. We move what matters, seamlessly.
+                Macrobands Pvt Ltd provides bespoke customs clearing and precision logistics between South Africa and Zimbabwe. We move what matters, seamlessly.
               </p>
             </FadeIn>
             
