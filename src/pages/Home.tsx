@@ -82,19 +82,19 @@ export default function Home() {
                 </div>
 
                 <motion.div
-                  animate={reduceMotion ? { y: 0 } : { y: [0, -5, 0] }}
+                  animate={reduceMotion ? { y: 0 } : { y: [0, -4, 0] }}
                   transition={{
                     duration: reduceMotion ? 0.3 : 5.5,
                     repeat: reduceMotion ? 0 : Infinity,
                     ease: [0.42, 0, 0.58, 1],
                   }}
-                  className="pointer-events-none absolute bottom-4 left-4 z-20 max-w-[calc(100%-2rem)] rounded-sm border border-[#09090B]/10 bg-white/95 p-4 shadow-xl backdrop-blur-sm sm:bottom-5 sm:left-5 sm:p-5"
+                  className="pointer-events-none absolute bottom-3 left-3 z-20 max-w-[min(100%-1.5rem,14rem)] rounded-sm border border-[#09090B]/10 bg-white/90 px-2.5 py-2 shadow-md backdrop-blur-sm sm:bottom-4 sm:left-4 sm:px-3 sm:py-2.5"
                 >
-                  <p className="mb-1.5 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.2em] text-[#38BDF8]">
-                    <span className="h-2 w-2 shrink-0 rounded-full bg-[#38BDF8] animate-pulse" />
+                  <p className="mb-0.5 flex items-center gap-1.5 text-[9px] font-medium uppercase tracking-[0.18em] text-[#38BDF8]">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#38BDF8] animate-pulse" />
                     Live corridor desk
                   </p>
-                  <p className="font-syne text-lg font-medium tracking-tight text-[#09090B] sm:text-xl">
+                  <p className="font-syne text-sm font-medium leading-snug tracking-tight text-[#09090B] sm:text-[0.9375rem]">
                     Border-to-border oversight
                   </p>
                 </motion.div>

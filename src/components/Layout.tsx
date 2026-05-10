@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { useLocation, useOutlet, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 
 import { dur, easePage } from '../constants/motion';
 import {
+  INQUIRY_EMAIL,
+  mailtoInquiryHref,
   TEL_CHIRUNDU,
   TEL_MACROBANDS_ZW,
   TEL_MUTARE_A,
@@ -19,6 +21,9 @@ import { CORRIDOR_HUB_CITIES, HQ_ADDRESS_LINES } from '../constants/site';
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [footerDropHq, setFooterDropHq] = useState(true);
+  const [footerDropHubs, setFooterDropHubs] = useState(true);
+  const [footerDropContact, setFooterDropContact] = useState(true);
   const location = useLocation();
   const currentOutlet = useOutlet();
 
@@ -120,83 +125,170 @@ export default function Layout() {
       {/* Footer */}
       <footer className="bg-[#FAFAFA] pt-32 pb-12 mt-auto">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-10 lg:gap-14 mb-24">
             <div className="md:col-span-2">
               <div className="font-syne tracking-tight text-4xl mb-6 font-light">Macrobands Pvt Ltd</div>
               <p className="text-base leading-[1.8] opacity-[0.85] max-w-sm font-light">
                 Premium clearing and forwarding solutions for a frictionless world economy.
               </p>
             </div>
-            
-            <div>
-              <h4 className="text-[10px] uppercase tracking-[0.2em] font-medium mb-6 opacity-40">
-                Headquarters
-              </h4>
-              <ul className="space-y-1.5 text-sm opacity-90 font-light mb-8">
-                {HQ_ADDRESS_LINES.map((line) => (
-                  <li key={line}>{line}</li>
-                ))}
-              </ul>
-              <h4 className="text-[10px] uppercase tracking-[0.2em] font-medium mb-4 opacity-40">
-                Corridor hubs
-              </h4>
-              <ul className="space-y-3 text-sm opacity-90 font-light">
-                {CORRIDOR_HUB_CITIES.map((city) => (
-                  <li key={city}>{city}</li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-[10px] uppercase tracking-[0.2em] font-medium mb-6 opacity-40">Contact</h4>
-              <ul className="space-y-3 text-sm opacity-90 font-light">
-                <li>inquiries@macrobands.co.za</li>
-                <li>
-                  <a href={TEL_MACROBANDS_ZW} className="hover:opacity-100 transition-opacity">
-                    +263 77 255 7785
-                  </a>
-                  <span className="opacity-60"> · Beitbridge · Mobile</span>
-                </li>
-                <li>
-                  <a href={TEL_CHIRUNDU} className="hover:opacity-100 transition-opacity">
-                    +263 78 890 7015
-                  </a>
-                  <span className="opacity-60"> · Chirundu · Mobile</span>
-                </li>
-                <li>
-                  <a href={TEL_NYAMAPANDA} className="hover:opacity-100 transition-opacity">
-                    +263 78 868 5806
-                  </a>
-                  <span className="opacity-60"> · Nyamapanda · Mobile</span>
-                </li>
-                <li>
-                  <a href={TEL_MUTARE_A} className="hover:opacity-100 transition-opacity">
-                    +263 71 932 0094
-                  </a>
-                  <span className="opacity-50 mx-0.5">/</span>
-                  <a href={TEL_MUTARE_B} className="hover:opacity-100 transition-opacity">
-                    +263 77 432 0094
-                  </a>
-                  <span className="opacity-60"> · Mutare · Mobile</span>
-                </li>
-                <li>
-                  <a href="tel:+27652442470" className="hover:opacity-100 transition-opacity">
-                    +27 65 244 2470
-                  </a>
-                  <span className="opacity-60"> · South Africa</span>
-                </li>
-                <li>
-                  <a
-                    href={waMeUrl(WHATSAPP_MACROBANDS_DIGITS)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-100 transition-opacity"
+
+            <div className="md:col-span-2">
+              <div className="overflow-hidden rounded-xl border border-[#09090B]/[0.08] bg-white shadow-[0_2px_24px_-12px_rgba(9,9,11,0.12)] divide-y divide-[#09090B]/[0.06]">
+                <div>
+                  <button
+                    type="button"
+                    id="footer-hq-toggle"
+                    aria-expanded={footerDropHq}
+                    aria-controls="footer-hq-panel"
+                    onClick={() => setFooterDropHq((o) => !o)}
+                    className="flex w-full min-h-[3rem] cursor-pointer items-center justify-between gap-4 px-5 py-3 text-left transition-colors hover:bg-[#FAFAFA]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#09090B]/10"
                   >
-                    +263 77 255 7785
-                  </a>
-                  <span className="opacity-60"> · Zimbabwe · WhatsApp</span>
-                </li>
-              </ul>
+                    <span className="text-[10px] uppercase tracking-[0.22em] font-medium text-[#09090B]/45">
+                      Headquarters
+                    </span>
+                    <ChevronDown
+                      className={`shrink-0 text-[#09090B]/30 transition-transform duration-300 ease-out ${footerDropHq ? 'rotate-180' : ''}`}
+                      size={17}
+                      strokeWidth={1.5}
+                      aria-hidden
+                    />
+                  </button>
+                  <div
+                    id="footer-hq-panel"
+                    role="region"
+                    aria-labelledby="footer-hq-toggle"
+                    hidden={!footerDropHq}
+                    className="border-t border-[#09090B]/[0.05] bg-[#FAFAFA]/50 px-5 pb-5 pt-3"
+                  >
+                    <ul className="space-y-1 text-sm leading-relaxed text-[#09090B]/85 font-light">
+                      {HQ_ADDRESS_LINES.map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <button
+                    type="button"
+                    id="footer-hubs-toggle"
+                    aria-expanded={footerDropHubs}
+                    aria-controls="footer-hubs-panel"
+                    onClick={() => setFooterDropHubs((o) => !o)}
+                    className="flex w-full min-h-[3rem] cursor-pointer items-center justify-between gap-4 px-5 py-3 text-left transition-colors hover:bg-[#FAFAFA]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#09090B]/10"
+                  >
+                    <span className="text-[10px] uppercase tracking-[0.22em] font-medium text-[#09090B]/45">
+                      Corridor hubs
+                    </span>
+                    <ChevronDown
+                      className={`shrink-0 text-[#09090B]/30 transition-transform duration-300 ease-out ${footerDropHubs ? 'rotate-180' : ''}`}
+                      size={17}
+                      strokeWidth={1.5}
+                      aria-hidden
+                    />
+                  </button>
+                  <div
+                    id="footer-hubs-panel"
+                    role="region"
+                    aria-labelledby="footer-hubs-toggle"
+                    hidden={!footerDropHubs}
+                    className="border-t border-[#09090B]/[0.05] bg-[#FAFAFA]/50 px-5 pb-5 pt-3"
+                  >
+                    <ul className="columns-1 text-sm text-[#09090B]/85 font-light sm:columns-2 sm:gap-x-8">
+                      {CORRIDOR_HUB_CITIES.map((city) => (
+                        <li key={city} className="break-inside-avoid py-1">
+                          {city}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <button
+                    type="button"
+                    id="footer-contact-toggle"
+                    aria-expanded={footerDropContact}
+                    aria-controls="footer-contact-panel"
+                    onClick={() => setFooterDropContact((o) => !o)}
+                    className="flex w-full min-h-[3rem] cursor-pointer items-center justify-between gap-4 px-5 py-3 text-left transition-colors hover:bg-[#FAFAFA]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#09090B]/10"
+                  >
+                    <span className="text-[10px] uppercase tracking-[0.22em] font-medium text-[#09090B]/45">
+                      Contact
+                    </span>
+                    <ChevronDown
+                      className={`shrink-0 text-[#09090B]/30 transition-transform duration-300 ease-out ${footerDropContact ? 'rotate-180' : ''}`}
+                      size={17}
+                      strokeWidth={1.5}
+                      aria-hidden
+                    />
+                  </button>
+                  <div
+                    id="footer-contact-panel"
+                    role="region"
+                    aria-labelledby="footer-contact-toggle"
+                    hidden={!footerDropContact}
+                    className="border-t border-[#09090B]/[0.05] bg-[#FAFAFA]/50 px-5 pb-5 pt-3"
+                  >
+                    <ul className="space-y-3.5 text-sm text-[#09090B]/85 font-light leading-snug">
+                      <li>
+                        <a
+                          href={mailtoInquiryHref()}
+                          className="underline decoration-[#09090B]/15 underline-offset-4 hover:decoration-[#09090B]/40 transition-colors"
+                        >
+                          {INQUIRY_EMAIL}
+                        </a>
+                      </li>
+                      <li>
+                        <a href={TEL_MACROBANDS_ZW} className="hover:text-[#09090B] transition-colors">
+                          +263 77 255 7785
+                        </a>
+                        <span className="text-[#09090B]/45"> · Beitbridge · Mobile</span>
+                      </li>
+                      <li>
+                        <a href={TEL_CHIRUNDU} className="hover:text-[#09090B] transition-colors">
+                          +263 78 890 7015
+                        </a>
+                        <span className="text-[#09090B]/45"> · Chirundu · Mobile</span>
+                      </li>
+                      <li>
+                        <a href={TEL_NYAMAPANDA} className="hover:text-[#09090B] transition-colors">
+                          +263 78 868 5806
+                        </a>
+                        <span className="text-[#09090B]/45"> · Nyamapanda · Mobile</span>
+                      </li>
+                      <li>
+                        <a href={TEL_MUTARE_A} className="hover:text-[#09090B] transition-colors">
+                          +263 71 932 0094
+                        </a>
+                        <span className="text-[#09090B]/35 mx-0.5">/</span>
+                        <a href={TEL_MUTARE_B} className="hover:text-[#09090B] transition-colors">
+                          +263 77 432 0094
+                        </a>
+                        <span className="text-[#09090B]/45"> · Mutare · Mobile</span>
+                      </li>
+                      <li>
+                        <a href="tel:+27652442470" className="hover:text-[#09090B] transition-colors">
+                          +27 65 244 2470
+                        </a>
+                        <span className="text-[#09090B]/45"> · South Africa</span>
+                      </li>
+                      <li>
+                        <a
+                          href={waMeUrl(WHATSAPP_MACROBANDS_DIGITS)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-[#16a34a] transition-colors"
+                        >
+                          +263 77 255 7785
+                        </a>
+                        <span className="text-[#09090B]/45"> · Zimbabwe · WhatsApp</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           
