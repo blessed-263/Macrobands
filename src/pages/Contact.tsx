@@ -45,7 +45,7 @@ export default function Contact() {
             </TextReveal>
             <FadeIn direction="up" delay={0.2}>
               <p className="text-lg opacity-[0.85] font-light leading-[1.8] max-w-md mb-16 text-[#09090B]">
-                Headquartered at Impala Extension in Beitbridge, we coordinate staging at Musina and clearance across Chirundu, Nyamapanda, Harare, and Bulawayo—clear movement across the SA–Zimbabwe corridor.
+                Headquartered at Impala Extension in Beitbridge, we coordinate staging at Musina and clearance across Chirundu, Nyamapanda, Mutare, and Harare—clear movement across the SA–Zimbabwe corridor.
               </p>
             </FadeIn>
 

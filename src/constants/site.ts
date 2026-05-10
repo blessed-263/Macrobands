@@ -8,12 +8,12 @@ export const HQ_ADDRESS_LINES = [
 export const HQ_ADDRESS_SINGLE_LINE =
   '1612 Impala Extension, Beitbridge, Zimbabwe';
 
-/** Hub labels aligned with the corridor diagram (Musina → … → Bulawayo). */
+/** Hub labels aligned with the corridor diagram (Musina → … → Harare). */
 export const CORRIDOR_HUB_CITIES = [
   'Musina',
   'Beitbridge',
   'Chirundu',
   'Nyamapanda',
+  'Mutare',
   'Harare',
-  'Bulawayo',
 ] as const;

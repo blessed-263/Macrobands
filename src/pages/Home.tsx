@@ -36,10 +36,10 @@ export default function Home() {
             <FadeIn direction="up" delay={0.6}>
               <p className="mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-xl opacity-90 max-w-xl w-full min-w-0 text-pretty leading-relaxed sm:leading-[1.75] md:leading-[1.8] font-light text-[#09090B]">
                 <span className="md:hidden">
-                  Bespoke clearing and logistics on the SA–Zimbabwe corridor—Beitbridge, Musina, and onward to Harare and Bulawayo. We move what matters, seamlessly.
+                  Bespoke clearing and logistics on the SA–Zimbabwe corridor—Beitbridge, Musina, and onward to Mutare and Harare. We move what matters, seamlessly.
                 </span>
                 <span className="hidden md:inline">
-                  Macrobands Pvt Ltd provides bespoke customs clearing and precision logistics along the SA–Zimbabwe corridor—from our Beitbridge headquarters at Impala Extension, with coordinated staging at Musina and onward through Chirundu, Nyamapanda, Harare, and Bulawayo. We move what matters, seamlessly.
+                  Macrobands Pvt Ltd provides bespoke customs clearing and precision logistics along the SA–Zimbabwe corridor—from our Beitbridge headquarters at Impala Extension, with coordinated staging at Musina and onward through Chirundu, Nyamapanda, Mutare, and Harare. We move what matters, seamlessly.
                 </span>
               </p>
             </FadeIn>
@@ -92,10 +92,10 @@ export default function Home() {
                 >
                   <p className="mb-1.5 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.2em] text-[#38BDF8]">
                     <span className="h-2 w-2 shrink-0 rounded-full bg-[#38BDF8] animate-pulse" />
-                    Live Monitoring
+                    Live corridor desk
                   </p>
                   <p className="font-syne text-lg font-medium tracking-tight text-[#09090B] sm:text-xl">
-                    100% Precision
+                    Border-to-border oversight
                   </p>
                 </motion.div>
               </div>
@@ -165,7 +165,7 @@ export default function Home() {
             },
             { 
               title: "Road Freight", 
-              desc: "Deploying routing tuned to the Musina–Beitbridge–Harare spine and branch lines to Chirundu, Nyamapanda, and Bulawayo—reliable transit where your cargo actually crosses.",
+              desc: "Deploying routing tuned to the Musina–Beitbridge–Harare spine and branch lines to Chirundu, Nyamapanda, and Mutare—reliable transit where your cargo actually crosses.",
               icon: <Globe strokeWidth={1} size={32} className="mb-6 opacity-90" />,
               image: images.homeRoadFreight
             },

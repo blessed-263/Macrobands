@@ -7,7 +7,7 @@ import { easeCorridor } from '../constants/motion';
 import { HQ_ADDRESS_SINGLE_LINE } from '../constants/site';
 
 const corridorStats = [
-  { value: '2', label: 'Countries linked' },
+  { value: '15+', label: 'Countries linked' },
   { value: '6', label: 'Operational hubs' },
   { value: '15+', label: 'Years corridor experience' },
 ];
@@ -16,8 +16,8 @@ const corridorStats = [
 function CorridorMap() {
   const mainPath =
     'M 110 280 C 260 215 340 188 420 170 C 520 145 620 115 812 88';
-  const bulawayoBranch = 'M 420 170 L 658 232';
   const chirunduBranch = 'M 520 138 L 560 92';
+  const mutareBranch = 'M 812 88 L 868 112';
 
   return (
     <svg
@@ -46,17 +46,6 @@ function CorridorMap() {
         transition={{ duration: 1.65, ease: easeCorridor }}
       />
       <motion.path
-        d={bulawayoBranch}
-        stroke="#FBBF24"
-        strokeWidth="2"
-        strokeOpacity={0.55}
-        strokeLinecap="round"
-        initial={{ pathLength: 0 }}
-        whileInView={{ pathLength: 1 }}
-        viewport={{ once: true, margin: '-12%' }}
-        transition={{ duration: 0.72, delay: 0.38, ease: easeCorridor }}
-      />
-      <motion.path
         d={chirunduBranch}
         stroke="#FBBF24"
         strokeWidth="2"
@@ -67,6 +56,17 @@ function CorridorMap() {
         viewport={{ once: true, margin: '-12%' }}
         transition={{ duration: 0.62, delay: 0.72, ease: easeCorridor }}
       />
+      <motion.path
+        d={mutareBranch}
+        stroke="#FBBF24"
+        strokeWidth="2"
+        strokeOpacity={0.55}
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        whileInView={{ pathLength: 1 }}
+        viewport={{ once: true, margin: '-12%' }}
+        transition={{ duration: 0.58, delay: 0.52, ease: easeCorridor }}
+      />
 
       {[
         { cx: 110, cy: 280, code: 'MUS', name: 'Musina' },
@@ -74,7 +74,7 @@ function CorridorMap() {
         { cx: 560, cy: 92, code: 'CHI', name: 'Chirundu' },
         { cx: 740, cy: 118, code: 'NYA', name: 'Nyamapanda' },
         { cx: 812, cy: 88, code: 'HRE', name: 'Harare' },
-        { cx: 658, cy: 232, code: 'BYO', name: 'Bulawayo' },
+        { cx: 868, cy: 112, code: 'MUT', name: 'Mutare' },
       ].map((node, i) => (
         <g key={node.code}>
           <motion.circle
@@ -133,8 +133,11 @@ export default function RegionalNetwork() {
     },
     { city: "Chirundu", desc: "Zambezi gateway & northbound corridor coordination" },
     { city: "Nyamapanda", desc: "Eastern border post clearance & regional staging" },
+    {
+      city: "Mutare",
+      desc: "Eastern highlands hub—corridor coordination, staging, and dual mobile reach for the eastern line",
+    },
     { city: "Harare", desc: "Zimbabwean operations centre & distribution control" },
-    { city: "Bulawayo", desc: "Industrial hub & secondary distribution" },
   ];
 
   return (
@@ -152,7 +155,7 @@ export default function RegionalNetwork() {
         </TextReveal>
         <FadeIn direction="up" delay={0.15} className="max-w-2xl mx-auto">
           <p className="text-base md:text-lg font-light leading-relaxed opacity-[0.82] text-[#09090B]">
-            Headquartered at {HQ_ADDRESS_SINGLE_LINE}, we maintain dedicated teams and staging capacity along the primary South Africa–Zimbabwe trade corridor—the same nodes highlighted here: Musina for staging, Beitbridge for border clearance, Chirundu and Nyamapanda as gateways, and Harare and Bulawayo for distribution.
+            Headquartered at {HQ_ADDRESS_SINGLE_LINE}, we maintain dedicated teams and staging capacity along the primary South Africa–Zimbabwe trade corridor—the same nodes highlighted here: Musina for staging, Beitbridge for border clearance, Chirundu and Nyamapanda as gateways, Mutare on the eastern spine, and Harare for national distribution.
           </p>
         </FadeIn>
       </div>
@@ -179,7 +182,7 @@ export default function RegionalNetwork() {
                   Musina to Harare—coordinated every step.
                 </h2>
                 <p className="text-sm md:text-base font-light leading-relaxed text-[#d6d3d1] max-w-md">
-                  The map mirrors how we work: headquarters at Impala Extension in Beitbridge; staging across Musina; border and heavy transit at the Beitbridge post; Chirundu for the Zambezi crossing; Nyamapanda for the eastern frontier; Harare as the Zimbabwe control tower; Bulawayo for industry and secondary distribution.
+                  The map mirrors how we work: headquarters at Impala Extension in Beitbridge; staging across Musina; border and heavy transit at the Beitbridge post; Chirundu for the Zambezi crossing; Nyamapanda for the eastern frontier; Mutare for eastern Zimbabwe staging; Harare as the Zimbabwe control tower and distribution anchor.
                 </p>
                 <GlobeIcon size={40} className="text-[#FBBF24]/90 hidden sm:block" />
               </div>
@@ -213,7 +216,7 @@ export default function RegionalNetwork() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
           {locations.map((loc, i) => (
             <FadeIn 
-              key={i}
+              key={loc.city}
               direction="up"
               delay={i * 0.15}
               className="flex items-start space-x-4 group"
