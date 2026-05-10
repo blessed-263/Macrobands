@@ -2,8 +2,14 @@ import { useState, useEffect, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLocation, useOutlet, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+
+import { dur, easePage } from '../constants/motion';
 import {
+  TEL_CHIRUNDU,
   TEL_MACROBANDS_ZW,
+  TEL_MUTARE_A,
+  TEL_MUTARE_B,
+  TEL_NYAMAPANDA,
   WHATSAPP_MACROBANDS_DIGITS,
   WHATSAPP_WEB_DESIGNER_DIGITS,
   waMeUrl,
@@ -100,10 +106,10 @@ export default function Layout() {
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: dur.page, ease: easePage }}
             className="flex-grow flex flex-col"
           >
             {currentOutlet}
@@ -150,6 +156,28 @@ export default function Layout() {
                     +263 77 255 7785
                   </a>
                   <span className="opacity-60"> · Beitbridge · Mobile</span>
+                </li>
+                <li>
+                  <a href={TEL_CHIRUNDU} className="hover:opacity-100 transition-opacity">
+                    +263 78 890 7015
+                  </a>
+                  <span className="opacity-60"> · Chirundu · Mobile</span>
+                </li>
+                <li>
+                  <a href={TEL_NYAMAPANDA} className="hover:opacity-100 transition-opacity">
+                    +263 78 868 5806
+                  </a>
+                  <span className="opacity-60"> · Nyamapanda · Mobile</span>
+                </li>
+                <li>
+                  <a href={TEL_MUTARE_A} className="hover:opacity-100 transition-opacity">
+                    +263 71 932 0094
+                  </a>
+                  <span className="opacity-50 mx-0.5">/</span>
+                  <a href={TEL_MUTARE_B} className="hover:opacity-100 transition-opacity">
+                    +263 77 432 0094
+                  </a>
+                  <span className="opacity-60"> · Mutare · Mobile</span>
                 </li>
                 <li>
                   <a href="tel:+27652442470" className="hover:opacity-100 transition-opacity">

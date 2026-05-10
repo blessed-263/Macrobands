@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { ArrowRight, Globe, ShieldCheck, Box } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 import { TextReveal } from '../components/TextReveal';
@@ -8,6 +8,8 @@ import { ImageReveal } from '../components/ImageReveal';
 import { images, intrinsicDimensions } from '../assets/images';
 
 export default function Home() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <div className="flex flex-col -mt-[88px]">
       {/* Hero Section - Split Editorial Layout */}
@@ -17,18 +19,19 @@ export default function Home() {
           {/* Text Content */}
           <div className="w-full min-w-0 lg:w-[48%] flex flex-col items-start text-left text-[#09090B] z-10 order-2 lg:order-1 mt-0 sm:mt-2 lg:mt-0">
             <FadeIn direction="up" delay={0.2}>
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-[#38BDF8] mb-2 sm:mb-3 md:mb-8 flex items-center gap-4">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-[#38BDF8] mb-2 md:mb-3 flex items-center gap-4">
                 Southern Africa Customs & Logistics
               </p>
             </FadeIn>
             
-            <TextReveal delay={0.4} className="w-full">
+            <FadeIn direction="up" delay={0.35} amount={0.15} className="w-full">
               <h1 className="font-syne tracking-tight text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-light text-balance text-[#09090B]">
                 Mastering the <br className="hidden md:block" />
-                <span className="italic opacity-90 text-[#38BDF8] pr-2">flow</span> 
+                <span className="italic opacity-90 text-[#38BDF8]">flow</span>
+                {' '}
                 <span className="inline-block">of trade.</span>
               </h1>
-            </TextReveal>
+            </FadeIn>
             
             <FadeIn direction="up" delay={0.6}>
               <p className="mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-xl opacity-90 max-w-xl w-full min-w-0 text-pretty leading-relaxed sm:leading-[1.75] md:leading-[1.8] font-light text-[#09090B]">
@@ -79,8 +82,12 @@ export default function Home() {
                 </div>
 
                 <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                  animate={reduceMotion ? { y: 0 } : { y: [0, -5, 0] }}
+                  transition={{
+                    duration: reduceMotion ? 0.3 : 5.5,
+                    repeat: reduceMotion ? 0 : Infinity,
+                    ease: [0.42, 0, 0.58, 1],
+                  }}
                   className="pointer-events-none absolute bottom-4 left-4 z-20 max-w-[calc(100%-2rem)] rounded-sm border border-[#09090B]/10 bg-white/95 p-4 shadow-xl backdrop-blur-sm sm:bottom-5 sm:left-5 sm:p-5"
                 >
                   <p className="mb-1.5 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.2em] text-[#38BDF8]">

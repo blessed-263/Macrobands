@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { MapPin } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 import { TextReveal } from '../components/TextReveal';
+import { easeCorridor } from '../constants/motion';
 import { HQ_ADDRESS_SINGLE_LINE } from '../constants/site';
 
 const corridorStats = [
@@ -42,7 +43,7 @@ function CorridorMap() {
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true, margin: '-12%' }}
-        transition={{ duration: 2.2, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.65, ease: easeCorridor }}
       />
       <motion.path
         d={bulawayoBranch}
@@ -53,7 +54,7 @@ function CorridorMap() {
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true, margin: '-12%' }}
-        transition={{ duration: 1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.72, delay: 0.38, ease: easeCorridor }}
       />
       <motion.path
         d={chirunduBranch}
@@ -64,7 +65,7 @@ function CorridorMap() {
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true, margin: '-12%' }}
-        transition={{ duration: 0.85, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.62, delay: 0.72, ease: easeCorridor }}
       />
 
       {[
@@ -86,7 +87,7 @@ function CorridorMap() {
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.15 * i + 0.5, duration: 0.35 }}
+            transition={{ delay: 0.08 * i + 0.42, duration: 0.38, ease: easeCorridor }}
           />
           <motion.circle
             cx={node.cx}
@@ -99,7 +100,7 @@ function CorridorMap() {
             initial={{ scale: 0.5, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.15 * i + 0.55, duration: 0.4 }}
+            transition={{ delay: 0.08 * i + 0.48, duration: 0.42, ease: easeCorridor }}
           />
           <text
             x={node.cx}

@@ -4,7 +4,15 @@ import { FadeIn } from '../components/FadeIn';
 import { TextReveal } from '../components/TextReveal';
 import { ParallaxImage } from '../components/ParallaxImage';
 import { images } from '../assets/images';
-import { TEL_MACROBANDS_ZW, waMeUrl, WHATSAPP_MACROBANDS_DIGITS } from '../constants/contacts';
+import {
+  TEL_CHIRUNDU,
+  TEL_MACROBANDS_ZW,
+  TEL_MUTARE_A,
+  TEL_MUTARE_B,
+  TEL_NYAMAPANDA,
+  waMeUrl,
+  WHATSAPP_MACROBANDS_DIGITS,
+} from '../constants/contacts';
 import { HQ_ADDRESS_LINES } from '../constants/site';
 
 export default function Contact() {
@@ -75,7 +83,55 @@ export default function Contact() {
                 </div>
               </FadeIn>
 
+              <FadeIn direction="up" delay={0.41} className="flex items-start space-x-6">
+                <Phone className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Chirundu · Mobile</p>
+                  <a
+                    href={TEL_CHIRUNDU}
+                    className="font-syne tracking-tight text-2xl font-light hover:text-[#A78BFA] transition-colors"
+                  >
+                    +263 78 890 7015
+                  </a>
+                </div>
+              </FadeIn>
+
               <FadeIn direction="up" delay={0.42} className="flex items-start space-x-6">
+                <Phone className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Nyamapanda · Mobile</p>
+                  <a
+                    href={TEL_NYAMAPANDA}
+                    className="font-syne tracking-tight text-2xl font-light hover:text-[#A78BFA] transition-colors"
+                  >
+                    +263 78 868 5806
+                  </a>
+                </div>
+              </FadeIn>
+
+              <FadeIn direction="up" delay={0.425} className="flex items-start space-x-6">
+                <Phone className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Mutare · Mobile</p>
+                  <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-2">
+                    <a
+                      href={TEL_MUTARE_A}
+                      className="font-syne tracking-tight text-xl md:text-2xl font-light hover:text-[#A78BFA] transition-colors"
+                    >
+                      +263 71 932 0094
+                    </a>
+                    <span className="hidden sm:inline text-[#09090B]/30 font-light">/</span>
+                    <a
+                      href={TEL_MUTARE_B}
+                      className="font-syne tracking-tight text-xl md:text-2xl font-light hover:text-[#A78BFA] transition-colors"
+                    >
+                      +263 77 432 0094
+                    </a>
+                  </div>
+                </div>
+              </FadeIn>
+
+              <FadeIn direction="up" delay={0.45} className="flex items-start space-x-6">
                 <Phone className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">South Africa · Mobile</p>
@@ -88,7 +144,7 @@ export default function Contact() {
                 </div>
               </FadeIn>
 
-              <FadeIn direction="up" delay={0.45} className="flex items-start space-x-6">
+              <FadeIn direction="up" delay={0.48} className="flex items-start space-x-6">
                 <MessageCircle className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Zimbabwe · WhatsApp</p>

@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
+
+import { easeEditorial } from '../constants/motion';
 
 const BRAND_MAIN = 'MACROBANDS';
 const LETTER_STAGGER = 0.048;
@@ -15,6 +17,7 @@ const EXIT_DURATION_MS = 880;
 export default function SplashScreen({ onComplete }: { onComplete: () => void }) {
   const [exit, setExit] = useState(false);
   const completedRef = useRef(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -24,11 +27,18 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
   }, []);
 
   useEffect(() => {
+    if (reduceMotion) return;
     const taglineEndsAt =
       TAGLINE_DELAY * 1000 + TAGLINE_DURATION * 1000 + HOLD_AFTER_TAGLINE_MS;
     const id = window.setTimeout(() => setExit(true), taglineEndsAt);
     return () => window.clearTimeout(id);
-  }, []);
+  }, [reduceMotion]);
+
+  useEffect(() => {
+    if (!reduceMotion) return;
+    const id = window.setTimeout(() => setExit(true), 520);
+    return () => window.clearTimeout(id);
+  }, [reduceMotion]);
 
   useEffect(() => {
     if (!exit) return;
@@ -51,8 +61,8 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
           : { y: 0, opacity: 1 }
       }
       transition={{
-        duration: EXIT_DURATION_MS / 1000,
-        ease: [0.76, 0, 0.24, 1],
+        duration: reduceMotion ? 0.35 : EXIT_DURATION_MS / 1000,
+        ease: easeEditorial,
       }}
     >
       <div className="flex flex-col items-center">
@@ -67,9 +77,9 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                 initial={{ y: '115%' }}
                 animate={{ y: 0 }}
                 transition={{
-                  duration: LETTER_DURATION,
-                  delay: i * LETTER_STAGGER,
-                  ease: [0.16, 1, 0.3, 1],
+                  duration: reduceMotion ? 0.28 : LETTER_DURATION,
+                  delay: reduceMotion ? 0 : i * LETTER_STAGGER,
+                  ease: easeEditorial,
                 }}
               >
                 {char}
@@ -84,9 +94,9 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
             initial={{ y: '130%', opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{
-              duration: SUB_DURATION,
-              delay: SUB_DELAY,
-              ease: [0.22, 1, 0.36, 1],
+              duration: reduceMotion ? 0.28 : SUB_DURATION,
+              delay: reduceMotion ? 0.06 : SUB_DELAY,
+              ease: easeEditorial,
             }}
           >
             Pvt Ltd
@@ -99,9 +109,9 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
             initial={{ y: '140%', opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{
-              duration: TAGLINE_DURATION,
-              delay: TAGLINE_DELAY,
-              ease: [0.22, 1, 0.36, 1],
+              duration: reduceMotion ? 0.28 : TAGLINE_DURATION,
+              delay: reduceMotion ? 0.12 : TAGLINE_DELAY,
+              ease: easeEditorial,
             }}
           >
             Customs & Logistics

@@ -1,5 +1,7 @@
-import { motion, useInView } from 'motion/react';
+import { motion, useInView, useReducedMotion } from 'motion/react';
 import { useRef } from 'react';
+
+import { dur, easeMedia } from '../constants/motion';
 
 type ImageRevealProps = {
   src: string;
@@ -14,15 +16,26 @@ type ImageRevealProps = {
 
 export function ImageReveal({ src, alt, className = '', priority, intrinsic }: ImageRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const visible = priority || isInView;
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const reduceMotion = useReducedMotion();
+  const visible = priority || isInView || Boolean(reduceMotion);
+
+  const initialScale = priority ? 1 : reduceMotion ? 1 : 1.018;
+  const initialOpacity = priority ? 1 : reduceMotion ? 1 : 0;
 
   return (
     <div ref={ref} className={`relative overflow-hidden bg-[#FAFAFA] ${className}`}>
       <motion.img
-        initial={priority ? { scale: 1, opacity: 1 } : { scale: 1.03, opacity: 0 }}
-        animate={visible ? { scale: 1, opacity: 1 } : { scale: 1.03, opacity: 0 }}
-        transition={{ duration: 1.05, ease: [0.25, 1, 0.5, 1] }}
+        initial={{ scale: initialScale, opacity: initialOpacity }}
+        animate={
+          visible
+            ? { scale: 1, opacity: 1 }
+            : { scale: reduceMotion ? 1 : 1.018, opacity: reduceMotion ? 1 : 0 }
+        }
+        transition={{
+          duration: reduceMotion ? 0.15 : dur.image,
+          ease: easeMedia,
+        }}
         src={src}
         alt={alt}
         width={intrinsic?.width}
