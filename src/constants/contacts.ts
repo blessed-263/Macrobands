@@ -27,3 +27,22 @@ export const TEL_MUTARE_B = `tel:+${PHONE_MUTARE_B_DIGITS}`;
 export const WHATSAPP_WEB_DESIGNER_DIGITS = '263771182657';
 
 export const waMeUrl = (digits: string) => `https://wa.me/${digits}`;
+
+export const INQUIRY_EMAIL = 'inquiries@macrobands.co.za';
+
+/** Opens the user’s mail client with a sensible subject and starter body — no server required. */
+export function mailtoInquiryHref(): string {
+  const subject = encodeURIComponent('Logistics inquiry — macrobands.co.za');
+  const body = encodeURIComponent(
+    'Hello Macrobands,\n\nPlease describe your shipment, route, and timeline:\n\n',
+  );
+  return `mailto:${INQUIRY_EMAIL}?subject=${subject}&body=${body}`;
+}
+
+/** WhatsApp chat with pre-filled opening message. */
+export function whatsappInquiryHref(digits: string): string {
+  const text = encodeURIComponent(
+    'Hello Macrobands — I would like to discuss a customs / logistics inquiry.',
+  );
+  return `${waMeUrl(digits)}?text=${text}`;
+}

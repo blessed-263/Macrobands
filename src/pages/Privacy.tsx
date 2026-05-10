@@ -13,7 +13,7 @@ const sections: { heading: string; paragraphs: string[] }[] = [
   {
     heading: '2. Information we may collect',
     paragraphs: [
-      'Contact and enquiry data: name, company name, email address, telephone numbers, and message content you submit via our Contact page, email, phone, or WhatsApp.',
+      'Contact and enquiry data: name, company name, email address, telephone numbers, and message content you provide when you contact us by email, phone, or WhatsApp (including using the contact options on our website).',
       'Business and shipment-related data: addresses, registration numbers, cargo descriptions, and documentation necessary to provide customs and logistics services under our agreements with you.',
       'Technical data: browser type, general location derived from IP address, pages viewed, and timestamps—typically collected through server logs or essential website technologies.',
     ],
