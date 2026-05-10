@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { MapPin } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 import { TextReveal } from '../components/TextReveal';
+import { HQ_ADDRESS_SINGLE_LINE } from '../constants/site';
 
 const corridorStats = [
   { value: '2', label: 'Countries linked' },
@@ -124,8 +125,11 @@ function CorridorMap() {
 
 export default function RegionalNetwork() {
   const locations = [
-    { city: "Musina", desc: "South African staging & corridor feed into the Limpopo line" },
-    { city: "Beitbridge", desc: "Primary SA–Zimbabwe border clearance & heavy transit" },
+    { city: "Musina", desc: "South African staging & corridor feed into the Limpopo line toward Beitbridge" },
+    {
+      city: "Beitbridge",
+      desc: "Registered office at Impala Extension—primary SA–Zimbabwe border clearance & heavy transit",
+    },
     { city: "Chirundu", desc: "Zambezi gateway & northbound corridor coordination" },
     { city: "Nyamapanda", desc: "Eastern border post clearance & regional staging" },
     { city: "Harare", desc: "Zimbabwean operations centre & distribution control" },
@@ -147,7 +151,7 @@ export default function RegionalNetwork() {
         </TextReveal>
         <FadeIn direction="up" delay={0.15} className="max-w-2xl mx-auto">
           <p className="text-base md:text-lg font-light leading-relaxed opacity-[0.82] text-[#09090B]">
-            Dedicated teams and staging capacity along the primary South Africa–Zimbabwe trade corridor, from Musina and Beitbridge through Chirundu and Nyamapanda into Harare and Bulawayo—aligned to how cargo actually moves.
+            Headquartered at {HQ_ADDRESS_SINGLE_LINE}, we maintain dedicated teams and staging capacity along the primary South Africa–Zimbabwe trade corridor—the same nodes highlighted here: Musina for staging, Beitbridge for border clearance, Chirundu and Nyamapanda as gateways, and Harare and Bulawayo for distribution.
           </p>
         </FadeIn>
       </div>
@@ -174,7 +178,7 @@ export default function RegionalNetwork() {
                   Musina to Harare—coordinated every step.
                 </h2>
                 <p className="text-sm md:text-base font-light leading-relaxed text-[#d6d3d1] max-w-md">
-                  Corridor staging at Musina; clearance and heavy transit at Beitbridge; northern and eastern gateways through Chirundu and Nyamapanda; distribution anchored in Harare with Bulawayo industrial coverage.
+                  The map mirrors how we work: headquarters at Impala Extension in Beitbridge; staging across Musina; border and heavy transit at the Beitbridge post; Chirundu for the Zambezi crossing; Nyamapanda for the eastern frontier; Harare as the Zimbabwe control tower; Bulawayo for industry and secondary distribution.
                 </p>
                 <GlobeIcon size={40} className="text-[#FBBF24]/90 hidden sm:block" />
               </div>

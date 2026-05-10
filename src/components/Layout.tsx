@@ -2,6 +2,13 @@ import { useState, useEffect, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLocation, useOutlet, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import {
+  TEL_MACROBANDS_ZW,
+  WHATSAPP_MACROBANDS_DIGITS,
+  WHATSAPP_WEB_DESIGNER_DIGITS,
+  waMeUrl,
+} from '../constants/contacts';
+import { CORRIDOR_HUB_CITIES, HQ_ADDRESS_LINES } from '../constants/site';
 
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -116,14 +123,21 @@ export default function Layout() {
             </div>
             
             <div>
-              <h4 className="text-[10px] uppercase tracking-[0.2em] font-medium mb-6 opacity-40">Offices</h4>
+              <h4 className="text-[10px] uppercase tracking-[0.2em] font-medium mb-6 opacity-40">
+                Headquarters
+              </h4>
+              <ul className="space-y-1.5 text-sm opacity-90 font-light mb-8">
+                {HQ_ADDRESS_LINES.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+              <h4 className="text-[10px] uppercase tracking-[0.2em] font-medium mb-4 opacity-40">
+                Corridor hubs
+              </h4>
               <ul className="space-y-3 text-sm opacity-90 font-light">
-                <li>Musina</li>
-                <li>Beitbridge</li>
-                <li>Chirundu</li>
-                <li>Nyamapanda</li>
-                <li>Harare</li>
-                <li>Bulawayo</li>
+                {CORRIDOR_HUB_CITIES.map((city) => (
+                  <li key={city}>{city}</li>
+                ))}
               </ul>
             </div>
             
@@ -131,7 +145,29 @@ export default function Layout() {
               <h4 className="text-[10px] uppercase tracking-[0.2em] font-medium mb-6 opacity-40">Contact</h4>
               <ul className="space-y-3 text-sm opacity-90 font-light">
                 <li>inquiries@macrobands.co.za</li>
-                <li>+27 (11) 555-0199</li>
+                <li>
+                  <a href={TEL_MACROBANDS_ZW} className="hover:opacity-100 transition-opacity">
+                    +263 77 255 7785
+                  </a>
+                  <span className="opacity-60"> · Beitbridge · Mobile</span>
+                </li>
+                <li>
+                  <a href="tel:+27652442470" className="hover:opacity-100 transition-opacity">
+                    +27 65 244 2470
+                  </a>
+                  <span className="opacity-60"> · South Africa</span>
+                </li>
+                <li>
+                  <a
+                    href={waMeUrl(WHATSAPP_MACROBANDS_DIGITS)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-100 transition-opacity"
+                  >
+                    +263 77 255 7785
+                  </a>
+                  <span className="opacity-60"> · Zimbabwe · WhatsApp</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -148,9 +184,10 @@ export default function Layout() {
             <div className="flex flex-wrap items-center justify-center gap-3 bg-white px-5 py-2.5 rounded-full border border-[#09090B]/10 shadow-sm text-xs">
               <span className="opacity-80 font-medium text-[#09090B]">Need a website like this?</span>
               <a
-                href="https://wa.me/263771182657"
+                href={waMeUrl(WHATSAPP_WEB_DESIGNER_DIGITS)}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="WhatsApp the web designer"
                 className="text-[#25D366] font-medium hover:text-[#20bd5a] transition-colors inline-flex items-center gap-1.5 bg-[#25D366]/10 px-3 py-1 rounded-full"
               >
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden>
@@ -165,9 +202,9 @@ export default function Layout() {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/263771182657"
+        href={waMeUrl(WHATSAPP_MACROBANDS_DIGITS)}
         className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 z-50 flex items-center justify-center group focus:outline-none focus:ring-4 focus:ring-green-300"
-        aria-label="WhatsApp +263771182657"
+        aria-label="WhatsApp Macrobands +263772557785"
         target="_blank"
         rel="noopener noreferrer"
       >

@@ -111,12 +111,13 @@ export default function Services() {
           </div>
         </motion.div>
 
-        {/* PIC ↔ TEXT × 3 (mobile: text first so banner + service images never stack back-to-back) */}
+        {/* PIC ↔ TEXT × 3 (mobile: text first; last row image pairs with mid banner below on small screens) */}
         <div className="space-y-24 lg:space-y-32">
           {services.map((service, index) => {
             const flip = index % 2 === 1;
             const imgX = flip ? 95 : -95;
             const txtX = flip ? -55 : 55;
+            const isLastService = index === services.length - 1;
 
             return (
               <motion.section
@@ -124,9 +125,9 @@ export default function Services() {
                 className={`flex flex-col-reverse gap-10 lg:gap-16 ${flip ? 'lg:flex-row-reverse' : 'lg:flex-row'} lg:items-center`}
                 style={{ perspective: 1600 }}
               >
-                {/* PIC */}
+                {/* PIC — hidden on mobile for last row (shown in diptych with mid banner) */}
                 <motion.div
-                  className="group w-full min-w-0 shrink-0 lg:w-[46%]"
+                  className={`group w-full min-w-0 shrink-0 lg:w-[46%] ${isLastService ? 'hidden lg:block' : ''}`}
                   initial={
                     reduceMotion
                       ? false
@@ -197,9 +198,37 @@ export default function Services() {
           })}
         </div>
 
-        {/* PIC — mid strip */}
+        {/* Mobile: last service image + mid banner as one framed diptych */}
         <motion.div
-          className="mt-20 w-full md:mt-28"
+          className="mx-auto mt-10 w-full max-w-5xl lg:hidden"
+          initial={reduceMotion ? false : { opacity: 0, y: 48, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={viewportOnce}
+          transition={{ ...snap, delay: 0.06 }}
+        >
+          <div className="overflow-hidden rounded-sm bg-[#FAFAFA] shadow-[0_12px_42px_-14px_rgba(9,9,11,0.16)] ring-1 ring-[#09090B]/[0.07]">
+            <div className="relative aspect-[3/2] w-full">
+              <ImageReveal
+                src={images.serviceExpedited}
+                alt={services[2].title}
+                className="h-full w-full min-h-0"
+                revealColor="#F43F5E"
+              />
+            </div>
+            <div className="relative aspect-[3/2] w-full border-t border-[#09090B]/[0.08]">
+              <ImageReveal
+                src={images.servicesMid}
+                alt="Integrated logistics, warehousing, and corridor connectivity"
+                className="h-full w-full min-h-0"
+                intrinsic={intrinsicDimensions.servicesMid}
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* PIC — mid strip (desktop only; paired above on mobile) */}
+        <motion.div
+          className="mt-20 hidden w-full md:mt-28 lg:block"
           initial={reduceMotion ? false : { opacity: 0, y: 70, scale: 0.9, skewY: 2 }}
           whileInView={{ opacity: 1, y: 0, scale: 1, skewY: 0 }}
           viewport={viewportOnce}

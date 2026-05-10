@@ -1,9 +1,11 @@
 import { motion } from 'motion/react';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 import { TextReveal } from '../components/TextReveal';
 import { ParallaxImage } from '../components/ParallaxImage';
 import { images } from '../assets/images';
+import { TEL_MACROBANDS_ZW, waMeUrl, WHATSAPP_MACROBANDS_DIGITS } from '../constants/contacts';
+import { HQ_ADDRESS_LINES } from '../constants/site';
 
 export default function Contact() {
   return (
@@ -12,7 +14,7 @@ export default function Contact() {
       <section className="w-full h-[40vh] md:h-[50vh] overflow-hidden -mt-[88px] relative z-0">
         <ParallaxImage 
           src={images.contactOffice} 
-          alt="Macrobands logistics operations across Southern Africa"
+          alt="Macrobands logistics along the SA–Zimbabwe corridor via Beitbridge"
           className="w-full h-full"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-[#FAFAFA]/60 to-transparent z-10" />
@@ -35,11 +37,23 @@ export default function Contact() {
             </TextReveal>
             <FadeIn direction="up" delay={0.2}>
               <p className="text-lg opacity-[0.85] font-light leading-[1.8] max-w-md mb-16 text-[#09090B]">
-                Our team is available to discuss customs clearing and freight options for your regional supply chain.
+                Headquartered at Impala Extension in Beitbridge, we coordinate staging at Musina and clearance across Chirundu, Nyamapanda, Harare, and Bulawayo—clear movement across the SA–Zimbabwe corridor.
               </p>
             </FadeIn>
 
             <div className="space-y-10">
+              <FadeIn direction="up" delay={0.28} className="flex items-start space-x-6">
+                <MapPin className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Address · Beitbridge (HQ)</p>
+                  {HQ_ADDRESS_LINES.map((line) => (
+                    <p key={line} className="font-syne tracking-tight text-xl md:text-2xl font-light leading-snug">
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              </FadeIn>
+
               <FadeIn direction="up" delay={0.3} className="flex items-start space-x-6">
                 <Mail className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
                 <div>
@@ -51,8 +65,41 @@ export default function Contact() {
               <FadeIn direction="up" delay={0.4} className="flex items-start space-x-6">
                 <Phone className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Headquarters · Musina</p>
-                  <p className="font-syne tracking-tight text-2xl font-light">+27 (11) 555-0199</p>
+                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Beitbridge · Mobile</p>
+                  <a
+                    href={TEL_MACROBANDS_ZW}
+                    className="font-syne tracking-tight text-2xl font-light hover:text-[#A78BFA] transition-colors"
+                  >
+                    +263 77 255 7785
+                  </a>
+                </div>
+              </FadeIn>
+
+              <FadeIn direction="up" delay={0.42} className="flex items-start space-x-6">
+                <Phone className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">South Africa · Mobile</p>
+                  <a
+                    href="tel:+27652442470"
+                    className="font-syne tracking-tight text-2xl font-light hover:text-[#A78BFA] transition-colors"
+                  >
+                    +27 65 244 2470
+                  </a>
+                </div>
+              </FadeIn>
+
+              <FadeIn direction="up" delay={0.45} className="flex items-start space-x-6">
+                <MessageCircle className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Zimbabwe · WhatsApp</p>
+                  <a
+                    href={waMeUrl(WHATSAPP_MACROBANDS_DIGITS)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-syne tracking-tight text-2xl font-light hover:text-[#A78BFA] transition-colors"
+                  >
+                    +263 77 255 7785
+                  </a>
                 </div>
               </FadeIn>
             </div>

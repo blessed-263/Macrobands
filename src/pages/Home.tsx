@@ -32,7 +32,7 @@ export default function Home() {
             
             <FadeIn direction="up" delay={0.6}>
               <p className="mt-8 text-base md:text-xl opacity-90 max-w-xl leading-[1.8] font-light text-[#09090B]">
-                Macrobands Pvt Ltd provides bespoke customs clearing and precision logistics between South Africa and Zimbabwe. We move what matters, seamlessly.
+                Macrobands Pvt Ltd provides bespoke customs clearing and precision logistics along the SA–Zimbabwe corridor—from our Beitbridge headquarters at Impala Extension, with coordinated staging at Musina and onward through Chirundu, Nyamapanda, Harare, and Bulawayo. We move what matters, seamlessly.
               </p>
             </FadeIn>
             
@@ -153,7 +153,7 @@ export default function Home() {
             },
             { 
               title: "Road Freight", 
-              desc: "Deploying optimized routing across Southern Africa to deliver assets with reliability and speed on regional road networks.",
+              desc: "Deploying routing tuned to the Musina–Beitbridge–Harare spine and branch lines to Chirundu, Nyamapanda, and Bulawayo—reliable transit where your cargo actually crosses.",
               icon: <Globe strokeWidth={1} size={32} className="mb-6 opacity-90" />,
               image: images.homeRoadFreight
             },
@@ -214,7 +214,7 @@ export default function Home() {
             </TextReveal>
             <FadeIn direction="up" delay={0.2} className="space-y-6 opacity-[0.85] font-light text-sm md:text-base leading-[1.8] max-w-md text-[#09090B]">
               <p>
-                In the complex environment of Southern African trade, friction is the enemy of progress. We believe that elegant logistical structures and flawless customs execution between South Africa and Zimbabwe provide the ultimate freedom for modern businesses.
+                In the complex environment of Southern African trade, friction is the enemy of progress. We believe that elegant logistical structures—aligned to real corridor nodes from Musina through Beitbridge to Harare and beyond—and flawless customs execution provide the ultimate freedom for modern businesses.
               </p>
               <p>
                 No border delays. No missing documents. Just absolute clarity and forward momentum across our borders.
