@@ -11,18 +11,18 @@ export default function Home() {
   return (
     <div className="flex flex-col -mt-[88px]">
       {/* Hero Section - Split Editorial Layout */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 flex flex-col justify-center max-w-7xl mx-auto min-h-[100vh] lg:min-h-[95vh] overflow-hidden">
-        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 xl:gap-20">
+      <section className="relative overflow-x-hidden pt-28 pb-12 sm:pt-32 sm:pb-16 md:min-h-[90vh] md:pt-40 md:pb-24 px-6 md:px-12 flex flex-col justify-center max-w-7xl mx-auto lg:min-h-[92vh]">
+        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-20">
           
           {/* Text Content */}
-          <div className="w-full lg:w-[48%] flex flex-col items-start text-left text-[#09090B] z-10 order-2 lg:order-1 mt-10 lg:mt-0">
+          <div className="w-full min-w-0 lg:w-[48%] flex flex-col items-start text-left text-[#09090B] z-10 order-2 lg:order-1 mt-0 sm:mt-2 lg:mt-0">
             <FadeIn direction="up" delay={0.2}>
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-[#38BDF8] mb-6 md:mb-8 flex items-center gap-4">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-[#38BDF8] mb-2 sm:mb-3 md:mb-8 flex items-center gap-4">
                 Southern Africa Customs & Logistics
               </p>
             </FadeIn>
             
-            <TextReveal delay={0.4}>
+            <TextReveal delay={0.4} className="w-full">
               <h1 className="font-syne tracking-tight text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] font-light text-balance text-[#09090B]">
                 Mastering the <br className="hidden md:block" />
                 <span className="italic opacity-90 text-[#38BDF8] pr-2">flow</span> 
@@ -31,13 +31,18 @@ export default function Home() {
             </TextReveal>
             
             <FadeIn direction="up" delay={0.6}>
-              <p className="mt-8 text-base md:text-xl opacity-90 max-w-xl leading-[1.8] font-light text-[#09090B]">
-                Macrobands Pvt Ltd provides bespoke customs clearing and precision logistics along the SA–Zimbabwe corridor—from our Beitbridge headquarters at Impala Extension, with coordinated staging at Musina and onward through Chirundu, Nyamapanda, Harare, and Bulawayo. We move what matters, seamlessly.
+              <p className="mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-xl opacity-90 max-w-xl w-full min-w-0 text-pretty leading-relaxed sm:leading-[1.75] md:leading-[1.8] font-light text-[#09090B]">
+                <span className="md:hidden">
+                  Bespoke clearing and logistics on the SA–Zimbabwe corridor—Beitbridge, Musina, and onward to Harare and Bulawayo. We move what matters, seamlessly.
+                </span>
+                <span className="hidden md:inline">
+                  Macrobands Pvt Ltd provides bespoke customs clearing and precision logistics along the SA–Zimbabwe corridor—from our Beitbridge headquarters at Impala Extension, with coordinated staging at Musina and onward through Chirundu, Nyamapanda, Harare, and Bulawayo. We move what matters, seamlessly.
+                </span>
               </p>
             </FadeIn>
             
             <FadeIn direction="up" delay={0.8}>
-              <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div className="mt-8 sm:mt-10 md:mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <Link to="/services" className="px-8 py-4 bg-[#09090B] text-[#FAFAFA] text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#38BDF8] hover:text-[#FAFAFA] transition-colors w-full sm:w-auto text-center border border-[#09090B]">
                   Explore Services
                 </Link>
@@ -50,7 +55,7 @@ export default function Home() {
           </div>
 
           {/* Prominent Hero Image */}
-          <div className="w-full lg:w-[52%] order-1 lg:order-2 relative mt-8 lg:mt-0">
+          <div className="w-full lg:w-[52%] order-1 lg:order-2 relative mt-4 sm:mt-6 lg:mt-0">
             <FadeIn delay={0.4} direction="left" className="relative z-10 w-full">
               {/*
                 Explicit aspect + min-height: an all-absolute stack can collapse to 0px tall,
@@ -61,7 +66,7 @@ export default function Home() {
                   className="relative w-full overflow-hidden rounded-sm shadow-2xl shadow-gray-200"
                   style={{
                     aspectRatio: `${intrinsicDimensions.heroLogistics.width} / ${intrinsicDimensions.heroLogistics.height}`,
-                    minHeight: 'clamp(280px, 48vw, 560px)',
+                    minHeight: 'clamp(220px, 42vw, 560px)',
                   }}
                 >
                   <ImageReveal

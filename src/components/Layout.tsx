@@ -96,7 +96,7 @@ export default function Layout() {
       )}
 
       {/* Main Content Area */}
-      <main className="flex-grow flex flex-col pt-[88px] overflow-hidden">
+      <main className="flex-grow flex flex-col overflow-x-hidden pt-[88px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -176,8 +176,12 @@ export default function Layout() {
             <div className="flex flex-col md:flex-row items-center gap-4 opacity-50">
               <p>&copy; {new Date().getFullYear()} Macrobands Pvt Ltd. All rights reserved.</p>
               <div className="flex space-x-6">
-                <a href="#" className="hover:opacity-100 transition-opacity uppercase tracking-wider">Privacy</a>
-                <a href="#" className="hover:opacity-100 transition-opacity uppercase tracking-wider">Terms</a>
+                <Link to="/privacy" className="hover:opacity-100 transition-opacity uppercase tracking-wider">
+                  Privacy
+                </Link>
+                <Link to="/terms" className="hover:opacity-100 transition-opacity uppercase tracking-wider">
+                  Terms
+                </Link>
               </div>
             </div>
 
