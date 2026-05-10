@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { FadeIn } from '../components/FadeIn';
 import { TextReveal } from '../components/TextReveal';
 import { ParallaxImage } from '../components/ParallaxImage';
@@ -51,20 +51,8 @@ export default function Contact() {
               <FadeIn direction="up" delay={0.4} className="flex items-start space-x-6">
                 <Phone className="text-[#A78BFA] shrink-0" strokeWidth={1} size={28} />
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Regional Helpdesk</p>
+                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Headquarters · Musina</p>
                   <p className="font-syne tracking-tight text-2xl font-light">+27 (11) 555-0199</p>
-                </div>
-              </FadeIn>
-
-              <FadeIn direction="up" delay={0.5} className="flex items-start space-x-6">
-                <MapPin className="text-[#A78BFA] shrink-0 mt-1" strokeWidth={1} size={28} />
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Headquarters</p>
-                  <p className="font-light leading-[1.8] max-w-[200px] text-lg text-[#09090B]">
-                    Sandton City Office Tower<br/>
-                    Johannesburg, 2196<br/>
-                    South Africa
-                  </p>
                 </div>
               </FadeIn>
             </div>

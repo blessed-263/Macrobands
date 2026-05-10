@@ -111,7 +111,7 @@ export default function Services() {
           </div>
         </motion.div>
 
-        {/* PIC → TEXT × 3 (mobile: always image first, then copy) */}
+        {/* PIC ↔ TEXT × 3 (mobile: text first so banner + service images never stack back-to-back) */}
         <div className="space-y-24 lg:space-y-32">
           {services.map((service, index) => {
             const flip = index % 2 === 1;
@@ -121,7 +121,7 @@ export default function Services() {
             return (
               <motion.section
                 key={service.title}
-                className={`flex flex-col gap-10 lg:gap-16 ${flip ? 'lg:flex-row-reverse' : 'lg:flex-row'} lg:items-center`}
+                className={`flex flex-col-reverse gap-10 lg:gap-16 ${flip ? 'lg:flex-row-reverse' : 'lg:flex-row'} lg:items-center`}
                 style={{ perspective: 1600 }}
               >
                 {/* PIC */}
