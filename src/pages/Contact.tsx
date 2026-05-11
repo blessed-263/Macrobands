@@ -6,6 +6,7 @@ import { ParallaxImage } from '../components/ParallaxImage';
 import { images } from '../assets/images';
 import {
   INQUIRY_EMAIL,
+  INQUIRY_EMAIL_ALT,
   mailtoInquiryHref,
   TEL_CHIRUNDU,
   TEL_MACROBANDS_ZW,
@@ -72,9 +73,15 @@ export default function Contact() {
                   <p className="text-xs uppercase tracking-[0.2em] opacity-50 mb-2">Email Inquiries</p>
                   <a
                     href={mailtoInquiryHref()}
-                    className="font-syne tracking-tight text-2xl font-light hover:text-[#A78BFA] transition-colors"
+                    className="font-syne tracking-tight text-2xl font-light hover:text-[#A78BFA] transition-colors block"
                   >
                     {INQUIRY_EMAIL}
+                  </a>
+                  <a
+                    href={`mailto:${INQUIRY_EMAIL_ALT}`}
+                    className="font-syne tracking-tight text-lg font-light hover:text-[#A78BFA] transition-colors block mt-1 opacity-75"
+                  >
+                    {INQUIRY_EMAIL_ALT}
                   </a>
                 </div>
               </FadeIn>
@@ -237,7 +244,7 @@ export default function Contact() {
                         Email the desk
                       </span>
                       <span className="font-syne text-lg font-light tracking-tight text-[#09090B] truncate">
-                        inquiries@macrobands.co.za
+                        {INQUIRY_EMAIL}
                       </span>
                     </span>
                   </span>

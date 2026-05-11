@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { dur, easePage } from '../constants/motion';
 import {
   INQUIRY_EMAIL,
+  INQUIRY_EMAIL_ALT,
   mailtoInquiryHref,
   TEL_CHIRUNDU,
   TEL_MACROBANDS_ZW,
@@ -21,9 +22,9 @@ import { CORRIDOR_HUB_CITIES, HQ_ADDRESS_LINES } from '../constants/site';
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [footerDropHq, setFooterDropHq] = useState(true);
-  const [footerDropHubs, setFooterDropHubs] = useState(true);
-  const [footerDropContact, setFooterDropContact] = useState(true);
+  const [footerDropHq, setFooterDropHq] = useState(false);
+  const [footerDropHubs, setFooterDropHubs] = useState(false);
+  const [footerDropContact, setFooterDropContact] = useState(false);
   const location = useLocation();
   const currentOutlet = useOutlet();
 
@@ -238,6 +239,14 @@ export default function Layout() {
                           className="underline decoration-[#09090B]/15 underline-offset-4 hover:decoration-[#09090B]/40 transition-colors"
                         >
                           {INQUIRY_EMAIL}
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href={`mailto:${INQUIRY_EMAIL_ALT}`}
+                          className="underline decoration-[#09090B]/15 underline-offset-4 hover:decoration-[#09090B]/40 transition-colors"
+                        >
+                          {INQUIRY_EMAIL_ALT}
                         </a>
                       </li>
                       <li>

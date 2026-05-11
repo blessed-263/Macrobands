@@ -79,7 +79,7 @@ const sections: { heading: string; paragraphs: string[] }[] = [
   {
     heading: '12. Contact',
     paragraphs: [
-      'For privacy-related requests or questions: inquiries@macrobands.co.za, or use the contact details on our Contact page.',
+      'For privacy-related requests or questions: Macrobands@gmail.com, or use the contact details on our Contact page.',
     ],
   },
 ];

@@ -28,7 +28,8 @@ export const WHATSAPP_WEB_DESIGNER_DIGITS = '263771182657';
 
 export const waMeUrl = (digits: string) => `https://wa.me/${digits}`;
 
-export const INQUIRY_EMAIL = 'inquiries@macrobands.co.za';
+export const INQUIRY_EMAIL = 'Macrobands@gmail.com';
+export const INQUIRY_EMAIL_ALT = 'mgubvumi@gmail.com';
 
 /** Opens the user’s mail client with a sensible subject and starter body — no server required. */
 export function mailtoInquiryHref(): string {
