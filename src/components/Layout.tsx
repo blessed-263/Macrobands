@@ -18,7 +18,7 @@ import {
   waMeUrl,
 } from '../constants/contacts';
 import { CORRIDOR_HUB_CITIES, HQ_ADDRESS_LINES } from '../constants/site';
-import { canonicalPath, seoForPath } from '../constants/seo';
+import { canonicalPath, seoForPath, SITE_ORIGIN } from '../constants/seo';
 
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -98,13 +98,34 @@ export default function Layout() {
       document.head.appendChild(twCard);
     }
     twCard.setAttribute('content', 'summary_large_image');
+
+    const tw = (name: string, content: string) => {
+      let el = document.head.querySelector(`meta[name="${name}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute('name', name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+    tw('twitter:title', title);
+    tw('twitter:description', description);
+    tw('twitter:image', `${SITE_ORIGIN}/images/hero-logistics.webp`);
+
+    let ogImage = document.head.querySelector('meta[property="og:image"]');
+    if (!ogImage) {
+      ogImage = document.createElement('meta');
+      ogImage.setAttribute('property', 'og:image');
+      document.head.appendChild(ogImage);
+    }
+    ogImage.setAttribute('content', `${SITE_ORIGIN}/images/hero-logistics.webp`);
   }, [location.pathname]);
 
   const navLinks = [
     { name: 'Services', path: '/services' },
     { name: 'Expertise', path: '/expertise' },
     { name: 'Regional Network', path: '/regional-network' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
