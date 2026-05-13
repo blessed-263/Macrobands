@@ -3,7 +3,7 @@
  * Override at build time with `import.meta.env.VITE_SITE_ORIGIN` if needed.
  */
 export const SITE_ORIGIN = (
-  import.meta.env.VITE_SITE_ORIGIN ?? 'https://macrobands.co.za'
+  import.meta.env.VITE_SITE_ORIGIN ?? 'https://www.macrobands.co.za'
 ).replace(/\/$/, '');
 
 export type RouteSeo = {
