@@ -18,6 +18,7 @@ import {
   waMeUrl,
 } from '../constants/contacts';
 import { CORRIDOR_HUB_CITIES, HQ_ADDRESS_LINES } from '../constants/site';
+import { canonicalPath, seoForPath } from '../constants/seo';
 
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,6 +42,62 @@ export default function Layout() {
   useEffect(() => {
     setMobileMenuOpen(false);
     window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const path = location.pathname;
+    const { title, description } = seoForPath(path);
+    document.title = title;
+
+    let metaDesc = document.head.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', description);
+
+    let metaRobots = document.head.querySelector('meta[name="robots"]');
+    if (!metaRobots) {
+      metaRobots = document.createElement('meta');
+      metaRobots.setAttribute('name', 'robots');
+      document.head.appendChild(metaRobots);
+    }
+    metaRobots.setAttribute('content', 'index, follow, max-image-preview:large');
+
+    const canonical = canonicalPath(path);
+    let linkCanon = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!linkCanon) {
+      linkCanon = document.createElement('link');
+      linkCanon.rel = 'canonical';
+      document.head.appendChild(linkCanon);
+    }
+    linkCanon.href = canonical;
+
+    const og = (property: string, content: string) => {
+      let el = document.head.querySelector(`meta[property="${property}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute('property', property);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+
+    og('og:type', 'website');
+    og('og:locale', 'en_ZA');
+    og('og:url', canonical);
+    og('og:title', title);
+    og('og:description', description);
+    og('og:site_name', 'Macrobands Pvt Ltd');
+
+    let twCard = document.head.querySelector('meta[name="twitter:card"]');
+    if (!twCard) {
+      twCard = document.createElement('meta');
+      twCard.setAttribute('name', 'twitter:card');
+      document.head.appendChild(twCard);
+    }
+    twCard.setAttribute('content', 'summary_large_image');
   }, [location.pathname]);
 
   const navLinks = [

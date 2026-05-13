@@ -1,0 +1,5 @@
+# https://macrobands.co.za — allow indexing
+User-agent: *
+Allow: /
+
+Sitemap: https://macrobands.co.za/sitemap.xml
