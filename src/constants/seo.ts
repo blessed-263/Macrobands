@@ -14,29 +14,30 @@ export type RouteSeo = {
 /** Keys are `location.pathname` values (no trailing slash except `/`). */
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   '/': {
-    title: 'Macrobands Pvt Ltd — Premium Logistics & Customs',
+    title:
+      'Macrobands Pvt Ltd — Beitbridge Customs Clearing & Border Logistics',
     description:
-      'Macrobands Pvt Ltd — customs clearing, cross-border freight, and logistics between South Africa and Zimbabwe.',
+      'Customs clearing company in Beitbridge for the Zimbabwe-South Africa border. Freight, forwarding, and corridor logistics from Musina to Harare.',
   },
   '/services': {
-    title: 'Services — Macrobands Pvt Ltd',
+    title: 'Customs Clearing & Freight Services — Macrobands Pvt Ltd',
     description:
-      'Clearing, forwarding, and corridor logistics services on the South Africa–Zimbabwe route — Macrobands Pvt Ltd.',
+      'Customs clearing, forwarding, road freight, and priority border clearance services on the South Africa-Zimbabwe corridor.',
   },
   '/expertise': {
     title: 'Expertise — Macrobands Pvt Ltd',
     description:
-      'Sector expertise in mining, agriculture, FMCG, and energy — customs and logistics across Southern Africa.',
+      'Logistics and customs expertise for mining, agriculture, FMCG, energy, and infrastructure cargo across Southern Africa.',
   },
   '/regional-network': {
-    title: 'Regional Network — Macrobands Pvt Ltd',
+    title: 'Beitbridge & Regional Network — Macrobands Pvt Ltd',
     description:
-      'Operational hubs and corridor coverage from Musina and Beitbridge to Harare — Macrobands regional network.',
+      'Regional network for Musina, Beitbridge, Chirundu, Nyamapanda, Mutare, and Harare corridor logistics.',
   },
   '/contact': {
-    title: 'Contact — Macrobands Pvt Ltd',
+    title: 'Contact Macrobands — Beitbridge Customs Clearing',
     description:
-      'Reach Macrobands for customs and logistics enquiries — email, phone, WhatsApp, and corridor hub lines.',
+      'Contact Macrobands for Beitbridge customs clearing, Zimbabwe border freight, road logistics, and corridor hub support.',
   },
   '/terms': {
     title: 'Terms & Conditions — Macrobands Pvt Ltd',

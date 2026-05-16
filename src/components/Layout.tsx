@@ -119,6 +119,40 @@ export default function Layout() {
       document.head.appendChild(ogImage);
     }
     ogImage.setAttribute('content', `${SITE_ORIGIN}/images/hero-logistics.webp`);
+
+    const breadcrumbNames: Record<string, string> = {
+      '/': 'Home',
+      '/services': 'Services',
+      '/expertise': 'Expertise',
+      '/regional-network': 'Regional Network',
+      '/contact': 'Contact',
+      '/terms': 'Terms and Conditions',
+      '/privacy': 'Privacy Policy',
+    };
+    const breadcrumbItems =
+      path === '/'
+        ? [{ name: 'Home', item: `${SITE_ORIGIN}/` }]
+        : [
+            { name: 'Home', item: `${SITE_ORIGIN}/` },
+            { name: breadcrumbNames[path] ?? title, item: canonical },
+          ];
+    let breadcrumbScript = document.getElementById('breadcrumb-jsonld') as HTMLScriptElement | null;
+    if (!breadcrumbScript) {
+      breadcrumbScript = document.createElement('script');
+      breadcrumbScript.id = 'breadcrumb-jsonld';
+      breadcrumbScript.type = 'application/ld+json';
+      document.head.appendChild(breadcrumbScript);
+    }
+    breadcrumbScript.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbItems.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: item.item,
+      })),
+    });
   }, [location.pathname]);
 
   const navLinks = [

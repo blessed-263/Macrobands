@@ -36,10 +36,10 @@ export default function Home() {
             <FadeIn direction="up" delay={0.6}>
               <p className="mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-xl opacity-90 max-w-xl w-full min-w-0 text-pretty leading-relaxed sm:leading-[1.75] md:leading-[1.8] font-light text-[#09090B]">
                 <span className="md:hidden">
-                  Bespoke clearing and logistics on the SA–Zimbabwe corridor—Beitbridge, Musina, and onward to Mutare and Harare. We move what matters, seamlessly.
+                  Customs clearing company for the SA-Zimbabwe corridor: Beitbridge border, Musina, and onward to Mutare and Harare.
                 </span>
                 <span className="hidden md:inline">
-                  Macrobands Pvt Ltd provides bespoke customs clearing and precision logistics along the SA–Zimbabwe corridor—from our Beitbridge headquarters at Impala Extension, with coordinated staging at Musina and onward through Chirundu, Nyamapanda, Mutare, and Harare. We move what matters, seamlessly.
+                  Macrobands Pvt Ltd is a customs clearing company headquartered in Beitbridge on the Zimbabwe-South Africa border. From Impala Extension, we coordinate border clearance, forwarding, and road freight along the SA-Zimbabwe corridor through Musina, Chirundu, Nyamapanda, Mutare, and Harare.
                 </span>
               </p>
             </FadeIn>
@@ -50,7 +50,7 @@ export default function Home() {
                   Explore Services
                 </Link>
                 <Link to="/services" className="flex items-center space-x-3 text-xs uppercase tracking-[0.2em] transition-colors group cursor-pointer text-[#09090B] hover:text-[#38BDF8]">
-                  <span>Our Approach</span>
+                  <span>Customs Clearing Services</span>
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -74,7 +74,7 @@ export default function Home() {
                 >
                   <ImageReveal
                     src={images.heroLogistics}
-                    alt="Macrobands Pvt Ltd branded truck fleet on a highway at sunset"
+                    alt="Macrobands customs clearing and logistics truck fleet serving the Beitbridge border corridor"
                     className="h-full w-full min-h-0"
                     priority
                     intrinsic={intrinsicDimensions.heroLogistics}
@@ -129,7 +129,7 @@ export default function Home() {
       <section className="w-full h-[40vh] md:h-[60vh] overflow-hidden">
         <ParallaxImage 
           src={images.containerTerminal} 
-          alt="Container terminal and logistics network"
+          alt="Container terminal for cross-border freight and customs logistics"
           className="w-full h-full"
         />
       </section>
@@ -150,7 +150,7 @@ export default function Home() {
           </div>
           <FadeIn direction="left" delay={0.2}>
             <Link to="/services" className="text-xs uppercase tracking-[0.2em] transition-colors w-max cursor-pointer text-[#09090B] hover:text-[#38BDF8]">
-              View All Services
+              View Customs & Freight Services
             </Link>
           </FadeIn>
         </div>
@@ -159,7 +159,7 @@ export default function Home() {
           {[
             { 
               title: "Customs Brokering", 
-              desc: "Navigating complex cross-border tariffs and SARS/ZIMRA compliance with immaculate precision, ensuring delays at Beitbridge are mathematically mitigated.",
+              desc: "Customs clearing and brokerage for SARS and ZIMRA requirements, with Beitbridge border documentation planned before cargo reaches the gate.",
               icon: <ShieldCheck strokeWidth={1} size={32} className="mb-6 opacity-90" />,
               image: images.homeCustomsBrokering
             },
@@ -185,7 +185,7 @@ export default function Home() {
               <div className="w-full aspect-[4/3] mb-8 overflow-hidden rounded-sm">
                 <img 
                   src={service.image} 
-                  alt={service.title} 
+                  alt={`${service.title} for South Africa-Zimbabwe corridor logistics`} 
                   className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                 />
               </div>

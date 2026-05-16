@@ -18,19 +18,17 @@ export default function App() {
   return (
     <BrowserRouter>
       {!splashDone && <SplashScreen onComplete={handleSplashComplete} />}
-      {splashDone && (
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="services" element={<Services />} />
-            <Route path="expertise" element={<Expertise />} />
-            <Route path="regional-network" element={<RegionalNetwork />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="terms" element={<Terms />} />
-            <Route path="privacy" element={<Privacy />} />
-          </Route>
-        </Routes>
-      )}
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="services" element={<Services />} />
+          <Route path="expertise" element={<Expertise />} />
+          <Route path="regional-network" element={<RegionalNetwork />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="terms" element={<Terms />} />
+          <Route path="privacy" element={<Privacy />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }

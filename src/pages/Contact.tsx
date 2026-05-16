@@ -45,12 +45,12 @@ export default function Contact() {
             </FadeIn>
             <TextReveal delay={0.1}>
               <h1 className="font-syne tracking-tight text-5xl md:text-7xl font-light leading-tight text-balance mb-8 text-[#09090B] ">
-                Begin the dialogue.
+                Contact Macrobands.
               </h1>
             </TextReveal>
             <FadeIn direction="up" delay={0.2}>
               <p className="text-lg opacity-[0.85] font-light leading-[1.8] max-w-md mb-16 text-[#09090B]">
-                Headquartered at Impala Extension in Beitbridge, we coordinate staging at Musina and clearance across Chirundu, Nyamapanda, Mutare, and Harare—clear movement across the SA–Zimbabwe corridor.
+                Contact our Beitbridge customs clearing team for freight, forwarding, and road logistics across the Zimbabwe-South Africa border. We coordinate staging at Musina and support corridors through Chirundu, Nyamapanda, Mutare, and Harare.
               </p>
             </FadeIn>
 

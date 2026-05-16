@@ -32,7 +32,7 @@ export default function Services() {
     {
       title: 'Cross-Border Customs Clearing',
       description:
-        'Our licensed brokers navigate the intricacies of SARS and ZIMRA trade regulations, ensuring swift customs clearance at Beitbridge and other key transit points. We transform regulatory hurdles into streamlined operations, mitigating risk and avoiding costly delays.',
+        'Our brokers navigate SARS and ZIMRA trade regulations for customs clearance at Beitbridge and other key transit points. We prepare documentation, align declarations, and reduce the risk of costly border delays.',
       image: images.serviceCustomsClearing,
       features: [
         'Tariff Classification & Compliance',
@@ -88,7 +88,7 @@ export default function Services() {
             transition={{ ...spring, delay: 0.08 }}
           >
             We don&apos;t merely move goods; we engineer sophisticated pathways through the complexities of cross-border trade in
-            Southern Africa.
+            Southern Africa, with practical customs clearing and freight support for the Beitbridge border corridor.
           </motion.p>
         </div>
 
@@ -104,7 +104,7 @@ export default function Services() {
           <div className={`${servicePhotoShell} mx-auto max-w-5xl`}>
             <ImageReveal
               src={images.servicesBanner}
-              alt="Macrobands freight, customs, and corridor logistics"
+              alt="Macrobands customs clearing, freight forwarding, and corridor logistics"
               className="h-full w-full min-h-0"
               intrinsic={intrinsicDimensions.servicesBanner}
             />
@@ -151,7 +151,7 @@ export default function Services() {
                 >
                   <ImageReveal
                     src={service.image}
-                    alt={service.title}
+                    alt={`${service.title} by Macrobands on the South Africa-Zimbabwe corridor`}
                     className={`${servicePhotoShell} transition-opacity duration-300 group-hover:opacity-95`}
                     revealColor="#F43F5E"
                   />
